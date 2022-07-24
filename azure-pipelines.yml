@@ -3,7 +3,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
 trigger:
-- master
+- main
 
 resources:
 - repo: self
@@ -21,10 +21,10 @@ stages:
       vmImage: ubuntu-latest
     steps:
     - task: Docker@2
-    inputs:
-      containerRegistry: 'DockerHubAzureDevOpsProvisionAPIInfrastructureusingTerraformFullCourse'
-      repository: 'vsolution026/weatherapi'
-      command: 'buildAndPush'
-      Dockerfile: '**/Dockerfile'
-        tags: |
+      inputs:
+        containerRegistry: 'DockerHubAzureDevOpsProvisionAPIInfrastructureusingTerraformFullCourse'
+        repository: 'vsolution026/weatherapi'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+      tags:|
           $(tag)
